@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model="id" placeholder="ID"> -->
+
+        <!-- 한글 렌더링 문제 해결 -->
+        <!-- <input type="text" :value="id" placeholder="ID" @input="changeId"> -->
+
+        <!-- 수식어 lazy -->
+        <input type="text" v-model.lazy="id" placeholder="ID">
+
+        <div>
+            <h2>관심 분야</h2>
+            <input type="checkbox" id="interA" value="게임" v-model="interesting">
+            <label for="interA">게임</label><br>
+            <input type="checkbox" id="interB" value="IT" v-model="interesting">
+            <label for="interB">IT</label><br>
+            <input type="checkbox" id="interC" value="하드웨어" v-model="interesting">
+            <label for="interC">하드웨어</label><br>
+            <input type="checkbox" id="interD" value="네트워크" v-model="interesting">
+            <label for="interD">네트워크</label><br>
+            <input type="checkbox" id="interE" value="정보보안" v-model="interesting">
+            <label for="interE">정보보안</label>
+        </div>
+
+        <div>
+            <h2>류호근 강사 강의 만족도</h2>
+            <input type="radio" id="radioA" value="5" v-model="score" name="score">
+            <label for="radioA">대만족</label><br>
+            <input type="radio" id="radioB" value="4" v-model="score" name="score">
+            <label for="radioB">만족</label><br>
+            <input type="radio" id="radioC" value="3" v-model="score" name="score">
+            <label for="radioC">보통</label><br>
+            <input type="radio" id="radioD" value="2" v-model="score" name="score">
+            <label for="radioD">불만</label><br>
+            <input type="radio" id="radioE" value="1" v-model="score" name="score">
+            <label for="radioE">대불만</label>
+        </div>
+
+        <div>
+            <h2>지금 먹고 싶은 음식</h2>
+            <select v-model="food">
+                <option value="">먹고 싶은 음식 선택</option>
+                <option value="치킨">치킨</option>
+                <option value="족발">족발</option>
+                <option value="보쌈">보쌈</option>
+                <option value="골뱅이">골뱅이</option>
+            </select>
+        </div>
+
+        <div>
+            <h2>정보 제공 수신 동의</h2>
+            <input type="checkbox" id="agreement" v-model="agree" true-value="yes" false-value="no">
+            <label for="agreement">수신 동의 여부</label><br>
+        </div>
+
+        <p>입력한 아이디는 {{id}} 입니다.</p>
+        <p>관심 분야 : {{interesting.join(', ')}} </p>
+        <p>류호근 강사 평점 : <span v-text="score"></span></p>  
+        <p>먹고 싶은 음식 : <span v-text="food"></span></p>  
+        <p>마케팅 수신 동의 여부 : <span v-text="agree"></span></p>  
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let vm = Vue.createApp({
+        name : 'test',
+        data() {
+            return {
+                id : '',
+                interesting : [],
+                score : '',
+                food : '',
+                agree : 'no'
+            }
+        },
+        methods: {
+            changeId(e){
+                this.id = e.target.value;
+            }
+        },
+    }).mount('#app')
+</script>
+</html>

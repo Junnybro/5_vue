@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if v-show</title>
+</head>
+<body>
+    <div id="app">
+        <label for="age">나이 </label>
+        <input type=text id="age" v-model.number="age" placeholder="나이 입력"></input>
+
+        <p v-show="age > 19">!!!술 가져와!!!</p>
+
+        <h2 v-if="age">나이 대</h2>
+        <!-- <p v-if="age">{{parseInt(age / 10)*10}}대</p> -->
+        
+        <p v-if="age > 29">30대</p>
+        <p v-else-if="age > 19">20대</p>
+        <p v-else-if="age > 9">10대</p>
+        <p v-else-if="age !== null && age < 10">10살 이상으로 입력해주세요!</p>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const app = Vue.createApp({
+        name : 'test',
+        data() {
+            return {
+                age : null
+            }
+        },
+    }).mount('#app');
+
+</script>
+</html>

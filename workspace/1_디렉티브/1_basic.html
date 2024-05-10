@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-text="data"></h1>
+        <div v-html="data2">깃허브로 이동</div>
+        <a :href="data3">깃허브 이동</a>
+
+        <!-- 단방향 데이터이기에 input의 데이터가 바뀐다고 하더라도 
+        Vue 인스턴스의 데이터는 바뀌지 않는다 -->
+        <input type="text" :value="data4">
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let m = {
+        data : '조용준',
+        data2 : '<a href="https://github.com/Junnybro/5_vue/tree/main">깃허브로 이동</a>',
+        data3 : 'https://github.com',
+        data4 : '조용준'
+    };
+    let vm =  Vue.createApp({
+        name : 'text',
+        data() {
+            return m;
+        }
+    }).mount('#app');
+</script>
+</html>
