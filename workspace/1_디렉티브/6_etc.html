@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>반복 렌더링 디렉티브2</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    li {
+      text-align: left;
+    }
+
+    [v-cloak]{display: none;}
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <h2>관심 분야</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>관심 분야</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(user, index) in users" :key="index">
+          <td v-pre>{{index + 1}}</td>
+          <td v-once>{{user.name}}</td>
+          <td>
+            <ul>
+              <li v-for="inter in user.interests" :key="index">
+                {{inter}}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    const vm = Vue.createApp({
+      data() {
+        return {
+          users: [
+            { name: '류호근', interests: ['IT', '개발자'] },
+            { name: '홍길동', interests: ['활빈당', '허균', '최초의 근대 소설'] },
+            { name: '수원이', interests: ['개굴개굴', '수원의 마스코트'] }
+          ]
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

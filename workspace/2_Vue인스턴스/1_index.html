@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인스턴스 컴포넌트 테스트</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    // 이런 식으로 필요한 기능만 가지고 와서 사용할 수도 있다.
+    const { createApp } = Vue;
+
+    // 자식 컴포넌트 정의
+    const ChildComponent = {
+        // template 는 컴포넌트의 UI를 정의하는 부분
+        template: `<div>
+                    <h3>자식 컴포넌트</h3>
+                    <p>Name: {{ name }}</p>
+                    </div>`,
+        data() {
+            return {
+            name: '자식이에요!',
+            };
+        },
+    };
+
+    // 부모 컴포넌트 정의
+    const ParentComponent = {
+        template: `<div>
+                    <h2>부모 컴포넌트</h2>
+                    <p>Name: {{ name }}</p>
+                    <child-component></child-component>
+                    </div>`,
+        data() {
+            return {
+            name: '부모에요!',
+            };
+        },
+        components: {
+            'child-component': ChildComponent,
+        },
+    };
+
+    // 루트 컴포넌트 정의
+    const RootComponent = {
+        template: `<div>
+                    <h1>루트 컴포넌트</h1>
+                    <p>Name: {{ name }}</p>
+                    <parent-component></parent-component>
+                    </div>`,
+        data() {
+            return {
+            name: '루트에요!',
+            };
+        },
+        components: {
+            'parent-component': ParentComponent,
+        },
+    };
+
+    // 애플리케이션 인스턴스 생성 및 마운트
+    const vm = createApp(RootComponent);
+    vm.mount('#app');
+
+</script>
+</html>

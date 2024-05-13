@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산된 속성 1</title>
+</head>
+<body>
+    <div id="app">
+        1보다 큰수 : <input type="text" v-model.number="num">
+        <br>
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const vm = Vue.createApp({
+        name  : 'test',
+        data() {
+            return {
+                num  : 0
+            }
+        },
+        computed : {
+            sum : {
+
+            
+            sum() {
+                console.log('지금 호출!')
+                if(!this.num) {
+                    return 0;
+                }
+                return (this.num * (this.num + 1))/2;
+                }
+            }
+        }
+    }).mount('#app');
+</script>
+</html>
