@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 버블링 뷰 버전</title>
+</head>
+<body>
+    <div id="app">
+        <div @click="parent">
+            <button @click.stop="child">버튼</button>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    Vue.creatApp({
+        methods: {
+            parent(){
+                alert('부모 이벤트 실행');
+            },
+            child(){
+                alert('자식 이벤트 실행');
+            }
+        },
+    }).mount('#app')
+</script>
+</html>

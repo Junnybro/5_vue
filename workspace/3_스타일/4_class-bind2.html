@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 적용2</title>
+    <style>
+        .btnColor {
+            background-color: ivory;
+            color: plum;
+        }
+        .btnLayout {
+            width: 120px;
+            height: 120px;
+            text-align: center;
+        }
+        .btnBorder {
+            border: red dashed 4px;
+        }
+        .staticStyle {
+            font-size: 49px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="isborder"> 테두리 적용 여부 <br>
+        <button :class="staticStyle" :class="[color, isborder ? border : '']">테스트1</button>
+        <button :class="border">테스트2</button>
+        <button :class="layout">테스트3</button>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const app = Vue.createApp({
+        name : 'test',
+        data (){
+            return {
+                color : 'btnColor',
+                layout : 'btnLayout',
+                border : 'btnBorder',
+                isborder : false
+            }
+        },
+    }).mount('#app')
+</script>
+</html>

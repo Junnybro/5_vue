@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 테스트2</title>
+</head>
+<body>
+    <div id="app">
+        금액 : <input type="text" v-model.number="money"><br>
+        <p>
+            <button v-on:click="deposit">입금</button>
+            <button @click="withdraw">출금</button>
+        </p>
+        <h3>계좌 잔고 : {{balance}} 원</h3>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let app = Vue.createApp({
+        name: 'test',
+        data() {
+            return {money : 0, balance : 0}
+        },
+        methods: {
+            deposit() {
+                if(this.money < 0) {
+                    alert('0보다 큰 값을 입금하세요!')
+                } else {
+                    this.balance += this.money;
+                    this.money = 0;
+                }
+            },
+            withdraw() {
+                if (this.money < 0) {
+                    alert('0보다 큰 값을 출금하세요!')
+                } else if (this.money > this.balance) {
+                    alert('잔액이 부족합니다!')
+                } else {
+                    this.balance -= this.money;
+                    this.money = 0;
+                }
+            }
+        },
+    }).mount('#app')
+</script>
+</html>

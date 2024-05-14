@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산된 속성을 이용한 클래스 바인딩</title>
+    <style>
+        .score {
+        border: solid 1px black;
+      }
+      .warning {
+        background-color: skyblue;
+        color: purple;
+        vertical-align: middle; /* 수직 중앙 정렬 */
+        margin-left: 10px; /* 좌측 여백 추가 */
+        padding: 0 5px; /* 내부 여백 설정 */
+        border-radius: 5px; /* 경계선 둥글게 처리 */
+      }
+    </style>
+</head>
+<body>
+    <div id="app">
+        점수 : <input type="text" class="score" v-model.number="score" :class="info">
+        <span class="warning" v-show="info.warning">입력 확인</span>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const app = Vue.createApp({
+        name : 'test',
+        data() {
+            return {
+                score :0
+            }
+        },
+        computed : {
+            info(){
+                return {warning : this.score < 1 || this.score > 100};
+            }
+        }
+    })
+</script>
+</html>

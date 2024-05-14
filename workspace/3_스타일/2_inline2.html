@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 스타일 지정</title>
+</head>
+<body>
+    <div id="app">
+        <butTon :style="style">스타일테스트</butTon>
+        <butTon :style="style2">스타일테스트</butTon>
+        <butTon :style="[style, style2]">스타일테스트</butTon>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const vm = Vue.createApp({
+        name : 'test',
+        data(){
+            return {
+                style : {backgroundColor:'aqua', color: 'black'},
+                style2 : {with : '150px', height:'80px', textAlign:'center'}
+            }
+        },
+    }).mount('#app')
+</script>
+</html>
