@@ -1,13 +1,12 @@
 <template lang="">
-    <div>
-        
-    </div>
+    <input type='checkbox' :checked='checked'>{{number}} {{name}}
+    <br>
 </template>
 <script>
-export default {
-    name : 'Checkboxitem',
-    props : ['name', 'checked']
-}
+    export default {
+        name : 'CheckboxItem',
+        props : ['name', 'checked', 'number']
+    }
 </script>
 <style lang="">
     
