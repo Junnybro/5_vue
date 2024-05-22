@@ -1,0 +1,39 @@
+▶ SPA (Single Page Application)
+	단일 페이지로 구성된 웹 애플리케이션
+	SPA는 처음에 웹 애플리케이션의 모든 콘텐츠를 한 번에 로드하고,
+	이 후 페이지 간의 이동이나 콘텐츠 업데이트가 필요할 때마다
+	서버 전체 페이지를 다시 요청하는 대신
+	JS를 사용하여 필요한 부분만 동적으로 로드하거나 업데이트하는 방식
+
+▶ SPA의 장점
+	빠른 페이지 로드
+		초기 로드 시 전체 애플리케이션을 불러오므로 이후 페이지 전환 시 매우 빠른 응답 속도를 제공한다.
+		
+	효율적인 데이터 처리
+		서버와의 통신은 필요한 데이터만 주고 받으므로 네트워크 트래픽이 줄어들고 성능이 향상된다. 
+	
+	사용자 경험의 차이
+		페이지 전환 시 전체 페이지를 다시 로드하지 않으므로 사용자는 자연스럽고 부드러운 사용자 경험을 얻는다.
+
+▶ vue-router
+	vue.js 의 공식 라우터 라이브러리, SPA를 손쉽게 만들 수 있도록 여러 기능을 제공한다.
+
+	기본 문법)
+	<template>
+		<router-link class="card" to="/">홈</router-link>
+		<router-link to="/free">자유게시판</router-link>
+		<router-link to="/anony">익명게시판</router-link>
+		
+		<router-view></router-view>
+	</template>
+
+	라우터
+	routes : [
+		{path : '/', component : 컴포넌트 경로(Home) }
+		{path : '/free', component : 컴포넌트 경로(Free) }
+		{path : '/anony', component : 컴포넌트 경로(Anony) }
+	]
+
+▶ 폴더 구성
+	components : 재사용 가능한 작은 컴포넌트들을 포함.
+	pages : 라우터에 매핑되는 페이지들을 포함.

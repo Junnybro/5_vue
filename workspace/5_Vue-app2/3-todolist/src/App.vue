@@ -26,6 +26,8 @@ export default {
 
   created() {
       this.emitter.on("add", this.addTodo);
+      this.emitter.on("delete", this.deleteTodo);
+      this.emitter.on("toggle", this.toggleCompleted);
   },
   data() {
       return {
