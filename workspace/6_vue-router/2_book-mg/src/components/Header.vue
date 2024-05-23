@@ -8,11 +8,8 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><router-link class="nav-link px-2 text-secondary" to='/'>Home</router-link></li>
-                    <li><router-link class="nav-link px-2 text-secondary" to='/features'>Features</router-link></li>
-                    <li><router-link class="nav-link px-2 text-secondary" to='/pricing'>Pricing</router-link></li>
-                    <li><router-link class="nav-link px-2 text-secondary" to='/faqs'>FAQs</router-link></li>
-                    <li><router-link class="nav-link px-2 text-secondary" to='/about'>About</router-link></li>
-                    <li><router-link class="nav-link px-2 text-secondary" to='/todoListBox'>TodoList</router-link></li>
+                    <li><router-link class="nav-link px-2 text-secondary" to='/add'>AddBook</router-link></li>
+                    <li><router-link class="nav-link px-2 text-secondary" to='/list'>BookList</router-link></li>
                 </ul>
             </div>
         </div>

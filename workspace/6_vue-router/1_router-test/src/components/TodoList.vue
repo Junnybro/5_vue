@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <ul class="list-group">
-                <Item v-for='item in todoList' :key='item.number'
+                <Item v-for='item in todoList' :key='item.id'
                  :item='item' />
             </ul>
         </div>

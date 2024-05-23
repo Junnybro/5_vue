@@ -1,11 +1,11 @@
 <template lang="">
     <div>
-        <h1>메인페이지 입니다~!!!!!</h1>
+        <h1>기능 입니다~!!!!!</h1>
     </div>
 </template>
 <script>
 export default {
-    name : 'Home'
+    name : 'Features'
 }
 </script>
 <style lang="">

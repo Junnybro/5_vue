@@ -14,21 +14,22 @@
             </div>
         </div>
     </div>
-  </template>
-  <script>
-  let i = 4;
-  import TodoList from "./components/TodoList.vue";
-  import InputCom from "./components/InputCom.vue";
-  
-  export default {
-    name: "App",
+</template>
+<script>
+let i = 4;
+import TodoList from "@/components/TodoList.vue";
+import InputCom from "@/components/InputCom.vue";
+
+export default {
+    name: "TodoListBox",
     components: { TodoList, InputCom },
-  
+
     created() {
         this.emitter.on("add", this.addTodo);
         this.emitter.on("delete", this.deleteTodo);
         this.emitter.on("toggle", this.toggleCompleted);
     },
+
     data() {
         return {
             todoList: [
@@ -58,6 +59,6 @@
             this.todoList[index].completed = !this.todoList[index].completed;
         },
     },
-  };
-  </script>
-  <style lang=""></style>
+};
+</script>
+<style lang=""></style>

@@ -35,7 +35,7 @@ export default {
                 this.todo = ''
             }
             else {
-                alert('3글자 이상만 추가 가능');
+                alert('3글자 이상만 추가 가능!')
             }
         }
     },
